@@ -23,7 +23,7 @@
   <link href="lib/hover/hoverex-all.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="static/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Template Name: Solid
@@ -49,9 +49,14 @@
       </div>
       <div class="navbar-collapse collapse navbar-right">
         <ul class="nav navbar-nav">
-          <li class="active"></li>
-          <li><a href="{{url_for('call_yakilog')}}">ログイン</a></li>
-          <li><a href="{{url_for('call_yakiregi')}}">無料登録</li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="blog.html">ホーム</a></li>
+              <li><a href="single-post.html">マイページ</a></li>
+              <li><a href="portfolio.html">ログアウト</a></li>
+            </ul>
+          </li>
             </ul>
           </li>
         </ul>
@@ -63,16 +68,14 @@
   <!-- *****************************************************************************************************************
 	 HEADERWRAP
 	 ***************************************************************************************************************** -->
-  <div id="headerwrap">
+  <div id="headerwrap" style="height: 300px;">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <h3>～気になる人をのぞきみしてみませんか～</h3>
           <h1>のぞきみルーティン</h1>
-          <section>
-            <a href="{{url_for('call_yakiregi')}}" class="btn_06"><span>無料会員登録</span></a>
-          </section>
-        </div>
+          <a href="" class="btn btn--orange">作る</a>
+          <a href="" class="btn btn--orange">見る</a>
       </div>
       <!-- /row -->
     </div>
@@ -83,14 +86,36 @@
   <!-- *****************************************************************************************************************
 	 SERVICE LOGOS
 	 ***************************************************************************************************************** -->
-
+  <div id="service">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-md-4">
+          <i class="fa fa-heart-o"></i>
+          <h4>Handsomely Crafted</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+        </div>
+        <div class="col-md-4">
+          <i class="fa fa-flask"></i>
+          <h4>Retina Ready</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+        </div>
+        <div class="col-md-4">
+          <i class="fa fa-trophy"></i>
+          <h4>Quality Theme</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- *****************************************************************************************************************
 	 PORTFOLIO SECTION
 	 ***************************************************************************************************************** -->
   <div id="portfoliowrap">
-    <h3>新着ルーティン</h3>
-
+    <h3>LATEST WORKS</h3>
     <div class="portfolio-centered">
       <div class="recentitems portfolio">
         <div class="portfolio-item graphic-design">
