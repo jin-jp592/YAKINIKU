@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link href="static/yakiregi.css" rel="stylesheet" id="bootstrap-css">
+<!--
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+-->
+<!------ Include the above in your HEAD tag ---------->
+</head>
+
+<body>
+<!--
+    you can substitue the span of reauth email for a input with the email and
+    include the remember me checkbox
+    -->
+    <div class="container">
+        <div class="card card-container">
+            <div class="yakiregi-div">
+                <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+                <img id="profile-img" class="profile-img-card" src="static/yakiniku-people.png" />
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin" action="/register" method="post">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="text" autocomplete="off" id="inputEmail" class="form-control" name="username" placeholder="ユーザーネーム" required autofocus>
+                    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="パスワード" required>
+                    <input type="password" id="re-inputPassword" class="form-control" name="confirm-password" placeholder="パスワード再確認" required>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">登録する！</button>
+                </form><!-- /form -->
+            </div>
+            <br>
+            <div class="yakiregi-div-down">
+                {% if error %}
+                    <p class=error><strong>Error:</strong> {{ error }} </p>
+                {% endif %}
+            </div>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+
+</body>
+
+</html>
