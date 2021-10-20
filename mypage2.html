@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -32,6 +31,7 @@
     Author: TemplateMag.com
     License: https://templatemag.com/license/
   ======================================================= -->
+  <title>{% block title %}{% endblock %} </title>
 </head>
 
 <body>
@@ -94,39 +94,28 @@
     </div>
 
     <div class="main">
-      <form action="POST">
-
-      <input class="form" type="text" name="yourname" placeholder="あなたの名前" required>
-      <br>
-      <input class="form" type="number" name="age" placeholder="年齢" required>
-
-      <!-- <div class="form-check">
-        <input class="form-check-input" type="radio" name="male" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-          男性
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="female" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          女性
-        </label>
-      </div> -->
-      <br>
-      <input type="text" list="list" placeholder="性別" required>
-      <datalist name="list">
-        <option value="男性">
-        <option value="女性">
-      </datalist>
-
-        <p>自己紹介</p>
-        
-          <div class="jikosyoukai">
-            <textarea id="nyuuryoku"  name="texts" cols="30" rows="10"></textarea>
-            <button type="submit">登録する</button>
-          </div>
-        </form>
+      <h2> {{ message }}</h2>
       
+      {% for FLASKDB_info in FLASKDB_infos %}
+      <table border="1" width="80%" height="150">
+          <tr>
+            <th bgcolor="#80ffff">名前</th>
+            <th bgcolor="#80ffff">年齢</th>
+            <th bgcolor="#80ffff">性別</th>
+          </tr>
+
+      <tr>
+        <td>{{FLASKDB_info[1]}}</td>
+        <td>{{FLASKDB_info[2]}}歳</td>
+        <td>{{FLASKDB_info[4]}}歳</td>
+      </tr>
+    </table>
+    <h3>自己紹介</h3>
+    <p>{{FLASKDB_info[3]}}</p>
+    {% endfor %}
+        <form action="POST">
+          <button type="submitt" class="btn btn-primary">編集する</button>
+        </form>
     </div>
 </div>
 
