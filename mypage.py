@@ -40,7 +40,7 @@ def bunsyou():
       db.session.commit()
       db.session.close()
       FLASKDB_infos = db.session.query(FLASKDB.ID, FLASKDB.YOURNAME, FLASKDB.AGE, FLASKDB.TEXTS, FLASKDB.LIST).all()
-      return render_template('mypage.html', FLASKDB_infos=FLASKDB_infos, message = '登録完了')
+      return render_template('mypage2.html', FLASKDB_infos=FLASKDB_infos, message = '登録完了')
 
 #python app立ち上げ
 
