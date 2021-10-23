@@ -23,7 +23,7 @@
   <link href="lib/hover/hoverex-all.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='/style.css') }}">
 
   <!-- =======================================================
     Template Name: Solid
@@ -89,8 +89,8 @@
   <div class="mypage">
     <div class="mypage_list">
         <a class="lists" href="#">プロフィール</p>
-        <a class="lists" href="/index">ルーティーン</p>
-        <a class="lists" href="/logout">ログアウト</a>
+          <a class="lists" href="{{url_for('call_rutin')}}">ルーティン</a>
+          <a class="lists" href="{{url_for('call_logout')}}">ログアウト</a>
     </div>
 
     <div class="main">
@@ -113,8 +113,8 @@
     <h3>自己紹介</h3>
     <p>{{FLASKDB_info[3]}}</p>
     {% endfor %}
-        <form action="POST">
-          <a href="mypage.html" class="btn">編集する</a>
+        <form method="POST">
+          <a href="{{url_for('call_mypage2')}}" class="btn">編集する</a>
         </form>
     </div>
 </div>
