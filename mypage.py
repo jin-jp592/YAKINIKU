@@ -47,7 +47,7 @@ def bunsyou():
 
 @app.route('/call_rutin', methods=['GET', 'POST'])
 def call_rutin():
-    return render_template('tasl_index.html', error=None)
+    return render_template('task_index.html', error=None)
 
 
 @app.route('/call_logout', methods=['GET', 'POST'])
