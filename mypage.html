@@ -94,30 +94,19 @@
     </div>
 
     <div class="main">
-      <form action="POST">
+      <form action="/mypage2" method="POST">
 
       <input class="form" type="text" name="yourname" placeholder="あなたの名前" required>
       <br>
-      <input class="form" type="number" name="age" placeholder="年齢" required>
+      <input class="form" type="number" max="100" min="0" name="age" placeholder="年齢" required>
 
-      <!-- <div class="form-check">
-        <input class="form-check-input" type="radio" name="male" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-          男性
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="female" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          女性
-        </label>
-      </div> -->
+
       <br>
-      <input type="text" list="list" placeholder="性別" required>
-      <datalist name="list">
-        <option value="男性">
-        <option value="女性">
-      </datalist>
+      <!-- <input type="list" list="list" placeholder="性別" required> -->
+      <select name="list">
+        <option value="男性">男性</option>
+        <option value="女性">女性</option>
+      </select>    
 
         <p>自己紹介</p>
         
