@@ -1,7 +1,8 @@
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
-from datetime import datetime
+import os
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret key'
@@ -16,7 +17,7 @@ class FLASKDB(db.Model):
     ID = db.Column(Integer, primary_key=True)
     YOURNAME = db.Column(String(32))
     AGE = db.Column(Integer)
-    TEXTSs = db.Column(db.String(300), nullable=False)
+    TEXTS = db.Column(db.String(300), nullable=False)
     LIST = db.Column(String(32))
 
 #DBの作成
