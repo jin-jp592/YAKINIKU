@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 # データベースの設定(sqliteファイルのパスを指定)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///yakiniku_user.db'
 db = SQLAlchemy(app)
 
 
@@ -34,7 +34,7 @@ class Todo(db.Model):
 
 # ルートにアクセスされたらindexページを開く
 @app.route('/', methods=['POST', 'GET'])
-def index():
+def task_index():
     # POSTメソッドで要求されたら
     if request.method == 'POST':
         # コンテンツを取得
@@ -64,7 +64,7 @@ def index():
     # 要求がない場合は、タスクリストを日付順に並べて表示
     else:
         tasks = Todo.query.order_by(Todo.date_created).all()
-        return render_template('index.html',tasks=tasks)
+        return render_template('task_index.html',tasks=tasks)
 
 # 削除画面
 @app.route('/delete/<int:id>')
