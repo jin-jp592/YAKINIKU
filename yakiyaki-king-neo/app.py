@@ -11,6 +11,12 @@ import difflib
 from difflib import SequenceMatcher
 import requests
 import json
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, Integer, String
+
+
+
+from mypage import mypage, bunsyou, call_rutin, call_logout, call_mypage2
 
 app = Flask(__name__)
 
@@ -47,6 +53,26 @@ db.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREME
 conn.commit()
 conn.close()
 
+
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+db = SQLAlchemy(app)
+
+#SQLiteのDBテーブル情報
+
+class FLASKDB(db.Model):
+    __tablename__ = 'flask_table'
+
+    ID = db.Column(Integer, primary_key=True)
+    YOURNAME = db.Column(String(32))
+    AGE = db.Column(Integer)
+    TEXTS = db.Column(db.String(300), nullable=False)
+    LIST = db.Column(String(32))
+
+
+
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -60,9 +86,20 @@ def call_yakiregi():
 def call_yakilog():
     return render_template('yakilog.html', error=None)
 
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    """Register user"""
+@app.route('/call_mypage', methods=['GET', 'POST'])
+def call_mypage():
+    return render_template('mypage.html', error=None)
+
+
+@app.route("/call_mypage2", methods=['POST'])
+def call_mypage2():
+    return render_template("mypage2.html", error=None)
+
+@app.route("/call_afterlogin", methods=['GET', 'POST'])
+def call_afterlogin():
+    return render_template("afterlogin.html", error=None)
+
+
 
     # ユーザーがログアウトしないでセッションをそのままにした場合を想定して，すべてのセッションをクリアする
     session.clear()
@@ -174,7 +211,7 @@ def login():
     # GETメソッドで入ったとき
     else:
         return render_template("yakilog.html")
-        
+
 @app.route("/logout")
 def logout():
     """Log user out"""
@@ -184,3 +221,7 @@ def logout():
 
     #インデックスにリダイレクトする。
     return redirect("/")
+
+if __name__ == '__main__':
+    db.create_all()
+    # app.run()
