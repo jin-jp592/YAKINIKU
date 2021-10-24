@@ -23,7 +23,7 @@
   <link href="lib/hover/hoverex-all.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='mypage.css') }}">
 
   <!-- =======================================================
     Template Name: Solid
@@ -41,29 +41,11 @@
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+
           </button>
-        <a class="navbar-brand" href="index.html">SOLID.</a>
+        <a class="navbar-brand" href="{{url_for('call_afterlogin')}}">のぞきみ</a>
       </div>
-      <div class="navbar-collapse collapse navbar-right">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">HOME</a></li>
-          <li><a href="about.html">ABOUT</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="blog.html">BLOG</a></li>
-              <li><a href="single-post.html">SINGLE POST</a></li>
-              <li><a href="portfolio.html">PORTFOLIO</a></li>
-              <li><a href="single-project.html">SINGLE PROJECT</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+
       <!--/.nav-collapse -->
     </div>
   </div>
@@ -77,7 +59,7 @@
       <div class="col-lg-8 col-lg-offset-2">
           <h2>mypage</h2>
       </div>
-        
+
       </div>
       <!-- /row -->
     </div>
@@ -88,14 +70,16 @@
 
   <div class="mypage">
     <div class="mypage_list">
-        <a class="lists" href="#">プロフィール</p>
-          <a class="lists" href="{{url_for('call_rutin')}}">ルーティン</a>
-          <a class="lists" href="{{url_for('call_logout')}}">ログアウト</a>
+      <ul>
+        <li><a class="lists" href="#">プロフィール</a></li>
+        <li><a class="lists" href="{{url_for('call_afterlogin')}}">ルーティン</a></li>
+        <li><a class="lists" href="{{url_for('logout')}}">ログアウト</a></li>
+      </ul>
     </div>
 
     <div class="main">
       <h2> {{ message }}</h2>
-      
+
       {% for FLASKDB_info in FLASKDB_infos %}
       <table border="1" width="80%" height="150">
           <tr>
@@ -113,8 +97,8 @@
     <h3>自己紹介</h3>
     <p>{{FLASKDB_info[3]}}</p>
     {% endfor %}
-        <form method="POST">
-          <a href="{{url_for('call_mypage2')}}" class="btn">編集する</a>
+        <form action="{{url_for('call_mypage')}}" method="POST">
+          <input type="submit" value="編集する" class="touroku">
         </form>
     </div>
 </div>
