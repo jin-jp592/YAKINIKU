@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Solid - Bootstrap Business Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,900|Lato:400,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/prettyphoto/css/prettyphoto.css" rel="stylesheet">
+  <link href="lib/hover/hoverex-all.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='mypage.css') }}">
+
+  <!-- =======================================================
+    Template Name: Solid
+    Template URL: https://templatemag.com/solid-bootstrap-business-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+          </button>
+        <a class="navbar-brand" href="{{url_for('call_afterlogin')}}">のぞきみ</a>
+      </div>
+
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+
+  <!-- *****************************************************************************************************************
+	 HEADERWRAP
+	 ***************************************************************************************************************** -->
+  <div id="headerwrap">
+    <div class="container">
+      <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+          <h2>mypage</h2>
+      </div>
+
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /headerwrap -->
+
+
+  <div class="mypage">
+    <div class="mypage_list">
+      <ul>
+        <li><a class="lists" href="#">プロフィール</a></li>
+        <li><a class="lists" href="{{url_for('call_afterlogin')}}">ルーティン</a></li>
+        <li><a class="lists" href="{{url_for('logout')}}">ログアウト</a></li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <form action="{{url_for('call_mypage2')}}" method="POST">
+        <ul>
+        <li class="namae"><input type="text" name="yourname" placeholder="あなたの名前" required></li>
+        <br>
+        <li class="nenrei"><input type="number" max="100" min="0" name="age" placeholder="年齢" required></li>
+
+
+        <br>
+        <!-- <input type="list" list="list" placeholder="性別" required> -->
+        <li class="gender"><select name="list">
+          <option value="男性">男性</option>
+          <option value="女性">女性</option>
+        </select></li>
+
+          <p>自己紹介</p>
+
+            <div class="jikosyoukai">
+              <textarea id="nyuuryoku"  name="texts" cols="30" rows="10"></textarea>
+
+            </div>
+         </ul>
+         <input type="submit" value="登録" class="touroku">
+      </form>
+
+    </div>
+</div>
+
+
+
+  <!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+  <div id="footerwrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>About</h4>
+          <div class="hline-w"></div>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Social Links</h4>
+          <div class="hline-w"></div>
+          <p>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-tumblr"></i></a>
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Our Address</h4>
+          <div class="hline-w"></div>
+          <p>
+            Some Ave, 987,<br/> 23890, New York,<br/> United States.<br/>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="copyrights">
+    <div class="container">
+      <p>
+        &copy; Copyrights <strong>Solid</strong>. All Rights Reserved
+      </p>
+      <div class="credits">
+        <!--
+          You are NOT allowed to delete the credit link to TemplateMag with free version.
+          You can delete the credit link only if you bought the pro version.
+          Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/solid-bootstrap-business-template/
+          Licensing information: https://templatemag.com/license/
+        -->
+        Created with Solid template by <a href="https://templatemag.com/">TemplateMag</a>
+      </div>
+    </div>
+  </div>
+  <!-- / copyrights -->
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/php-mail-form/validate.js"></script>
+  <script src="lib/prettyphoto/js/prettyphoto.js"></script>
+  <script src="lib/isotope/isotope.min.js"></script>
+  <script src="lib/hover/hoverdir.js"></script>
+  <script src="lib/hover/hoverex.min.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
