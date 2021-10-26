@@ -6,17 +6,22 @@
 
 {% block body %}
 <div class="content">
-    <h1 class="text-white bg-dark">タスク編集</h1>
+    <h1 class="text-white bg-warning">タスク編集</h1>
 
     <div class="form">
         <form action="/edit/{{task.id}}" method="post">
-            <input type="text" name="content" id="content" value="{{task.content}}" class="form-control bg-dark text-white"> 
+            <input type="text" name="content" id="content" class="form-control bg-white text-white"　width="50%">
 
-            <input type="datetime-local" name="due_date" id="due" class="form-control bg-dark text-white"　width="50%">
+        <input type="datetime-local" name="due_date" id="due" class="form-control bg-white text-dark"　width="50%">
 
-            <input type="submit" value="編集する" class="btn btn-success">
+            <div id="submit">
+            <input type="submit" value="新規追加" id="submit_button" class="btn btn-success">
+            </div>
+
         </form>
     </div>
 
 </div>
+
+
 {% endblock %}

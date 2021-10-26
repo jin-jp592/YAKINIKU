@@ -1,0 +1,16 @@
+input#content{max-width: 290px;
+margin: 0 auto;}
+
+
+input#due{max-width: 290px;
+    margin: 0 auto;}
+
+#submit{text-align: center;}
+
+input#submit_button{width: 40%;
+    margin: 10px;}
+
+
+    #return_button{
+        display: block;
+        margin: 0 0 0 auto;}

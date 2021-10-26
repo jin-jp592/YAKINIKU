@@ -82,6 +82,13 @@ def call_yakilog():
 def register():
     """Register user"""
 
+
+
+@app.route('/top_return')
+def top_return():
+    return render_template('afterlogin.html')
+
+
     # ユーザーがログアウトしないでセッションをそのままにした場合を想定して，すべてのセッションをクリアする
     session.clear()
 
@@ -222,7 +229,7 @@ db = SQLAlchemy(app)
 
 class Todo(db.Model):
     # テーブル名を設定
-    __tablename__ = 'todos'
+    __tablename__ = 'todos'  
     # 作成するテーブルのカラムを定義
     # ID
     id = db.Column(db.Integer, primary_key=True)
